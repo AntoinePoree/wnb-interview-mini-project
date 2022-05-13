@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DeliberateCardComponent } from './deliberate-card/deliberate-card.component';
+import { CandidateCardModule } from './candidate-card/candidate-card.module';
+import { ChipModule } from './chip/chip.module';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: [DeliberateCardComponent],
-  exports: [DeliberateCardComponent]
+  imports: [CommonModule],
+  exports: [CandidateCardModule, ChipModule],
 })
-export class ComponentsModule { }
+export class ComponentsModule {}
