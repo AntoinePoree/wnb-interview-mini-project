@@ -13,17 +13,71 @@ body {
   background: transparent linear-gradient(90deg, $wanabi-yellow 0%, $wanabi-light-yellow 100%);
   background-repeat: repeat-x;
   background-size: 100% 50%;
+  background-attachment: fixed;
 
   margin: 0;
 }
 
 .clip {
-  position: absolute;
-  bottom: 50%;
+  position: fixed;
+  bottom: 49.9%;
 
   clip-path: polygon(100% 75%, 0% 100%, 100% 100%);
   background: white;
 
   width: 100%;
   height: 20rem;
+  background-attachment: fixed;
+
+  z-index: -1;
+}
+
+@font-face {
+  font-family: 'Ano-bold';
+  src: local('Ano-bold'), url(../assets/fonts/ano-bold/ano-bold-regular.otf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Ano-regular';
+  src: local('Ano-regular'), url(../assets/fonts/ano-regular/ano-regular.otf) format('truetype');
+}
+
+h1,
+h2,
+h3,
+h4,
+h6 {
+  font-family: 'Ano-bold', Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 2.875rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.125rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+h5,
+div,
+p,
+span {
+  font-family: 'Ano-regular', Arial, Helvetica, sans-serif;
+  font-size: 0.875rem;
 }
