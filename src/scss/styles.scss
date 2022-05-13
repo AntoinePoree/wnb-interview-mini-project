@@ -1,2 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'core';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: transparent linear-gradient(90deg, $wanabi-yellow 0%, $wanabi-light-yellow 100%);
+  background-repeat: repeat-x;
+  background-size: 100% 50%;
+
+  margin: 0;
+}
+
+.clip {
+  position: absolute;
+  bottom: 50%;
+
+  clip-path: polygon(100% 75%, 0% 100%, 100% 100%);
+  background: white;
+
+  width: 100%;
+  height: 20rem;
+}
