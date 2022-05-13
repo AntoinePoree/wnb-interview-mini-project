@@ -1,3 +1,7 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/15b207a7-163c-4928-ba74-20c61b5a565a/deploy-status)](https://app.netlify.com/sites/sage-creponne-a6401e/deploys)
+
+You can see the website [here ! Take a look 😉](https://sage-creponne-a6401e.netlify.app/)
+
 # WnbInterviewMiniProject
 
 ## Goal
