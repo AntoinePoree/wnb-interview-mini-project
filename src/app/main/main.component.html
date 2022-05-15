@@ -1,6 +1,9 @@
 <main>
   <h2>Les volontaires</h2>
   <h5>Retrouvez la liste de toutes les inscriptions à vos missions</h5>
-  <app-candidate-card></app-candidate-card>
-  <app-chip></app-chip>
+  <div class="card" *ngIf="{ candidates: candidates$ | async, stats: stats$ | async } as data">
+    <app-header [candidates]="data.candidates"></app-header>
+    <app-candidate-card></app-candidate-card>
+    <app-chip></app-chip>
+  </div>
 </main>

@@ -20,4 +20,5 @@ export interface ICandidate {
   initiative: IInitiative;
   status: Status;
   volunteerProfile: Pick<ICoordinatorProfile, 'firstname' | 'lastname'> & { company: { name: string } };
+  entries?: { dateBegin: string; dateEnd: string };
 }

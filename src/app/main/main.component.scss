@@ -1,3 +1,4 @@
+@import 'var';
 main {
   max-width: 70%;
   margin-left: auto;
@@ -16,4 +17,9 @@ h5::before {
   height: 1.5rem;
   float: left;
   margin: -0.1rem 0px 0px 0px;
+}
+.card {
+  background-color: $white;
+  border-radius: 1.563rem;
+  padding: 1.188rem;
 }

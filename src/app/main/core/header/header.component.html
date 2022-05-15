@@ -1,0 +1,10 @@
+<ng-container *ngIf="candidates?.length; else loading">
+  <p>En ce moment</p>
+  <h4>
+    <span>{{ candidates.length }}</span> inscriptions
+  </h4>
+  <app-progress-bar [candidates]="candidates"></app-progress-bar>
+  <app-status-filter [candidates]="candidates"></app-status-filter>
+</ng-container>
+
+<ng-template #loading><app-loader></app-loader></ng-template>

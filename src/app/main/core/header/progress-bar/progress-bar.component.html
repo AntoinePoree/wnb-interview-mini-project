@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="mb-3">
+      <div class="progress" style="height: 20px" *ngIf="candidates">
+        <div
+          *ngFor="let value of candidates | byStatus | byStack: candidates.length"
+          class="progress-bar"
+          [ngStyle]="{ width: value.value + '%', 'background-color': value.color }"
+          role="progressbar"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          [attr.data-tooltip]="value.label"
+        ></div>
+      </div>
+    </div>
+  </div>
+</div>
