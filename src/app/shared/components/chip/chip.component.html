@@ -1,3 +1,5 @@
-<p>
-  chip works!
-</p>
+<button class="chip" *ngIf="stack" (click)="stackSelected.emit(stack)" [ngClass]="{ active: active }">
+  <span class="circle" [ngStyle]="{ 'background-color': stack.color }"></span>
+  <span class="label">{{ stack.label }}</span>
+  <span>{{ stack.value }}</span>
+</button>

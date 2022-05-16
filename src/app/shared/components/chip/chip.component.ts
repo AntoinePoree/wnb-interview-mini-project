@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { IStack } from '../../pipes/by-stack.pipe';
 
 @Component({
   selector: 'app-chip',
   templateUrl: './chip.component.html',
-  styleUrls: ['./chip.component.scss']
+  styleUrls: ['./chip.component.scss'],
 })
-export class ChipComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class ChipComponent {
+  @Input() stack: IStack;
+  @Input() active: boolean;
+  @Output() stackSelected = new EventEmitter<IStack[]>();
 }
