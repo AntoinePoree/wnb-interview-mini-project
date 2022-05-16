@@ -18,20 +18,6 @@ body {
   margin: 0;
 }
 
-.clip {
-  position: fixed;
-  bottom: 49.9%;
-
-  clip-path: polygon(100% 75%, 0% 100%, 100% 100%);
-  background: white;
-
-  width: 100%;
-  height: 20rem;
-  background-attachment: fixed;
-
-  z-index: -1;
-}
-
 @font-face {
   font-family: 'Ano-bold';
   src: local('Ano-bold'), url(../assets/fonts/ano-bold/ano-bold-regular.otf) format('truetype');
@@ -48,6 +34,10 @@ h3,
 h4,
 h6 {
   font-family: 'Ano-bold', Arial, Helvetica, sans-serif;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
 h1 {
@@ -59,10 +49,12 @@ h2 {
 }
 
 h3 {
+  // 32px
   font-size: 2rem;
 }
 
 h4 {
+  // 24px
   font-size: 1.5rem;
 }
 

@@ -1,0 +1,36 @@
+.progress {
+  cursor: pointer;
+  border-radius: 1rem;
+  background-color: transparent;
+}
+.progress-bar:nth-child(5) {
+  border-radius: 0 1rem 1rem 0;
+}
+.progress-bar:nth-child(6) {
+  opacity: 0;
+}
+
+[data-tooltip]:before {
+  position: absolute;
+  content: attr(data-tooltip);
+  opacity: 0;
+  bottom: 2.25rem;
+
+  width: auto;
+  background-color: white;
+  color: black;
+  box-shadow: 0px 3px 6px #00000029;
+  border: 1px solid #d8d8d8;
+  border-radius: 40px;
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: bold;
+  inset: auto;
+}
+
+[data-tooltip]:hover:before {
+  opacity: 1;
+}
+[data-tooltip]:not([data-tooltip-persistent]):before {
+  pointer-events: none;
+}
