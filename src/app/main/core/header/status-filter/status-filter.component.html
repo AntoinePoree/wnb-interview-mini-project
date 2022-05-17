@@ -1,3 +1,10 @@
-<p>
-  status-filter works!
-</p>
+<p class="muted">Suivez les inscriptions en fonction de leur statut :</p>
+
+<div>
+  <app-chip
+    *ngFor="let stack of candidates | byStatus | byStack: candidates.length"
+    [stack]="stack"
+    [active]="stack.active"
+    (stackSelected)="stackSelected.emit($event)"
+  ></app-chip>
+</div>

@@ -3,13 +3,13 @@
     <div class="mb-3">
       <div class="progress" style="height: 20px" *ngIf="candidates">
         <div
-          *ngFor="let value of candidates | byStatus | byStack: candidates.length"
+          *ngFor="let stack of candidates | byStatus | byStack: candidates.length"
           class="progress-bar"
-          [ngStyle]="{ width: value.value + '%', 'background-color': value.color }"
+          [ngStyle]="{ width: stack.percentage + '%', 'background-color': stack.color }"
           role="progressbar"
           aria-valuemin="0"
           aria-valuemax="100"
-          [attr.data-tooltip]="value.label"
+          [attr.data-tooltip]="stack.label"
         ></div>
       </div>
     </div>

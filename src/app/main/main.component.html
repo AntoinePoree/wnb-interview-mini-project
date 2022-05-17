@@ -3,7 +3,6 @@
   <h5>Retrouvez la liste de toutes les inscriptions à vos missions</h5>
   <div class="card" *ngIf="{ candidates: candidates$ | async, stats: stats$ | async } as data">
     <app-header [candidates]="data.candidates"></app-header>
-    <app-candidate-card></app-candidate-card>
-    <app-chip></app-chip>
+    <app-list-candidate></app-list-candidate>
   </div>
 </main>

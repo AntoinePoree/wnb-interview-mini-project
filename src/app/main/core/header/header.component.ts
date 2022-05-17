@@ -1,3 +1,4 @@
+import { IStack } from 'src/app/shared/pipes/by-stack.pipe';
 import { ICandidate } from './../../../shared/models/candidate';
 import { Component, Input } from '@angular/core';
 
@@ -8,4 +9,17 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderComponent {
   @Input() readonly candidates: ICandidate[];
+  stacksFilter: IStack[] = [];
+
+  filterCard(stack: IStack) {
+    if (this.stacksFilter.find((cs) => cs === stack)) {
+      stack.active = false;
+      this.stacksFilter = this.stacksFilter.filter((cs) => cs.label !== stack.label);
+    } else {
+      stack.active = true;
+      this.stacksFilter.push(stack);
+    }
+    // doing some stuff
+    console.log(this.stacksFilter);
+  }
 }

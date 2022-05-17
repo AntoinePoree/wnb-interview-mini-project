@@ -3,17 +3,20 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { OrderUtils } from '../utils/order-utils';
 import { ICandidate } from '../models/candidate';
 
-interface IStack {
+export interface IStack {
   color: string;
   label: string;
   value: number;
+  percentage: number;
+  active?: boolean;
 }
 
 function generateStack(status: Status, count: number, all: number): IStack {
   return {
     color: colorByStatus[status],
     label: labelByStatus[status],
-    value: (count / all) * 100,
+    value: count,
+    percentage: (count / all) * 100,
   };
 }
 
