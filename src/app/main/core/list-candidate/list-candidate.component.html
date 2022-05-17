@@ -1,2 +1,2 @@
 <p>list-candidate works!</p>
-<app-candidate-card></app-candidate-card>
+<app-candidate-card *ngFor="let candidate of candidates" [candidate]="candidate"></app-candidate-card>

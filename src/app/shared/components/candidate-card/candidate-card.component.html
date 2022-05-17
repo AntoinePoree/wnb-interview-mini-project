@@ -1,3 +1,71 @@
-<p>
-  deliberate-card works!
-</p>
+<div class="card" *ngIf="candidate">
+  <div class="portrait">
+    <img [src]="imgPath" />
+    <p>{{ candidate.id }}</p>
+    <p class="light-muted">Inscrit le : {{ candidate.createdDate | date: 'd MMMM y':'UTC+1':'FR' }}</p>
+  </div>
+  <div class="description">
+    <h6 class="center">{{ candidate.volunteerProfile.firstname }} {{ candidate.volunteerProfile.lastname }}</h6>
+    <p class="muted center">{{ candidate.volunteerProfile.company.name }}</p>
+    <div>
+      <p class="info">
+        <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+        {{ candidate.initiative.title }}
+      </p>
+      <p class="info">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        {{ candidate.initiative.city }}
+      </p>
+      <p class="info">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        {{ candidate.coordinatorProfile.firstname }} {{ candidate.coordinatorProfile.lastname }}
+      </p>
+    </div>
+  </div>
+  <div class="status">
+    <div class="inline">
+      <span class="light-muted">Statut :</span>
+      <app-little-chip [chip]="candidate | toChip"></app-little-chip>
+    </div>
+    <div class="entries">
+      <div [ngSwitch]="candidate.status">
+        <ng-container *ngSwitchCase="Status.Application">
+          <p>
+            Ce volontaire souhaite participer à votre mission. Envoyez lui un message pour lui expliquer la mission et vos disponibilités
+            pour un premier échange.
+          </p>
+        </ng-container>
+        <ng-container *ngSwitchCase="Status.WaitingManager">
+          <p>
+            La mission se déroulera sur le temps de travail du volontaire, l’accord du manager est requis. En attendant sa validation,
+            n’hésitez pas à donner toutes les informations de la mission au volontaire
+          </p>
+        </ng-container>
+        <ng-container *ngSwitchCase="Status.Cancelled">
+          <p *ngIf="candidate.entries?.length; else noEntrieForCancelled">
+            Vous avez refusé l'inscription de ce volontaire le 15/11/2020 à 15h02. REVIEW
+          </p>
+          <ng-template #noEntrieForCancelled>Cette inscription n'est plus valable.</ng-template>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          <ng-container *ngIf="candidate.entries?.length > 0; else emptyEntries">
+            <ul>
+              <li *ngFor="let entrie of candidate.entries; let i = index">
+                <span [ngClass]="{ 'bottom-line': i + 1 !== candidate.entries.length }">
+                  Le {{ entrie.dateBegin | date: 'dd/MMM/y':'UTC+1':'FR' }}, de {{ entrie.dateBegin | date: 'H':'UTC+1':'FR' }}h à
+                  {{ entrie.dateEnd | date: 'H':'UTC+1':'FR' }}h ({{ entrie | diffBetweenStartAndEnd }})
+                </span>
+              </li>
+            </ul>
+          </ng-container>
+          <ng-template #emptyEntries>
+            <p>
+              Ce volontaire souhaite participer à votre mission. Envoyez lui un message pour lui expliquer la mission et vos disponibilités
+              pour un premier échange.
+            </p>
+          </ng-template>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

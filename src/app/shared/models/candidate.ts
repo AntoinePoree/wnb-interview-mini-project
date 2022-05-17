@@ -13,6 +13,11 @@ interface IInitiative {
   title: string;
 }
 
+export interface IEntrie {
+  dateBegin: string;
+  dateEnd: string;
+}
+
 export interface ICandidate {
   coordinatorProfile: ICoordinatorProfile;
   createdDate: string;
@@ -20,5 +25,5 @@ export interface ICandidate {
   initiative: IInitiative;
   status: Status;
   volunteerProfile: Pick<ICoordinatorProfile, 'firstname' | 'lastname'> & { company: { name: string } };
-  entries?: { dateBegin: string; dateEnd: string };
+  entries?: IEntrie[];
 }

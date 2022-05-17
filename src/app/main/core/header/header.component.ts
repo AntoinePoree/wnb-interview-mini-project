@@ -1,6 +1,6 @@
-import { IStack } from 'src/app/shared/pipes/by-stack.pipe';
 import { ICandidate } from './../../../shared/models/candidate';
 import { Component, Input } from '@angular/core';
+import { IStack } from 'src/app/shared/models/stack';
 
 @Component({
   selector: 'app-header',

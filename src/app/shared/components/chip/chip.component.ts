@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IStack } from '../../pipes/by-stack.pipe';
+import { IStack } from '../../models/stack';
 
 @Component({
   selector: 'app-chip',
