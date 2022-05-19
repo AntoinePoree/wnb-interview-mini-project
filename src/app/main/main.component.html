@@ -1,8 +1,8 @@
 <main class="container">
   <h2>Les volontaires</h2>
   <h5><i class="fa fa-hand-o-right" aria-hidden="true"></i> Retrouvez la liste de toutes les inscriptions à vos missions</h5>
-  <div class="card" *ngIf="{ candidates: candidates$ | async, stats: stats$ | async } as data">
-    <app-header [candidates]="data.candidates"></app-header>
-    <app-list-candidate [candidates]="data.candidates"></app-list-candidate>
+  <div class="card" *ngIf="{ candidates: candidates$ | async, stats: stats$ | async, candidatesFilter: candidatesFilter$ | async } as data">
+    <app-header [candidates]="data.candidates" (filterCandidateByStatus)="filterCandidateByStatus($event)"></app-header>
+    <app-list-candidate [candidates]="data.candidatesFilter"></app-list-candidate>
   </div>
 </main>

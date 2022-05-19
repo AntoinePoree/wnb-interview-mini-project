@@ -4,7 +4,12 @@
     <span>{{ candidates.length }}</span> inscriptions
   </h4>
   <app-progress-bar [candidates]="candidates"></app-progress-bar>
-  <app-status-filter [candidates]="candidates" (stackSelected)="filterCard($event)"></app-status-filter>
+  <app-status-filter
+    [candidates]="candidates"
+    [displayedReset]="displayedReset"
+    (stackSelected)="filterCard($event)"
+    (resetStack)="resetFilter()"
+  ></app-status-filter>
 </ng-container>
 
 <ng-template #loading><app-loader></app-loader></ng-template>

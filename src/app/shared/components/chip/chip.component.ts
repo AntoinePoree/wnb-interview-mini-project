@@ -9,5 +9,7 @@ import { IStack } from '../../models/stack';
 export class ChipComponent {
   @Input() stack: IStack;
   @Input() active: boolean;
+  @Input() reset: boolean;
   @Output() stackSelected = new EventEmitter<IStack[]>();
+  @Output() resetStack = new EventEmitter<void>();
 }

@@ -3,3 +3,8 @@
   <span class="label">{{ stack.label }}</span>
   <span>{{ stack.value }}</span>
 </button>
+
+<button class="chip" *ngIf="reset && !stack" (click)="resetStack.emit()">
+  <span class="circle" [ngStyle]="{ 'background-color': 'grey' }"></span>
+  <span class="label">Réinitialiser les critères</span>
+</button>
