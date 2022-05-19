@@ -7,4 +7,5 @@
     [active]="stack.active"
     (stackSelected)="stackSelected.emit($event)"
   ></app-chip>
+  <app-chip [reset]="displayedReset" (resetStack)="resetStack.emit($event)"></app-chip>
 </div>
