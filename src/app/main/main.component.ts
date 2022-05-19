@@ -6,6 +6,7 @@ import { labelByStatus, Status } from '../shared/models/status';
 import { MainService } from '../shared/services/main.service';
 import { combineLatest, forkJoin, Observable, Subject, zip } from 'rxjs';
 import { shareReplay, takeUntil, merge, map } from 'rxjs/operators';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-main',
@@ -21,7 +22,7 @@ export class MainComponent {
 
   candidatesFilter$: Observable<ICandidate[]>;
 
-  constructor(private mainService: MainService) {
+  constructor(private mainService: MainService, private viewportScroller: ViewportScroller) {
     this.candidatesFilter$ = this.candidates$;
   }
 
@@ -47,10 +48,28 @@ export class MainComponent {
       const filterIt = this.filterByStatus(this.statusByLabel(stacks[stacks.length - 1].label));
       this.candidatesFilter$ = combineLatest(this.candidatesFilter$, filterIt).pipe(map(([a, b]) => a.concat(b)));
     }
+    setTimeout(() => {
+      this.goToFilterCandidate();
+    }, 100);
   }
 
+  /**
+   * Passed a label who corresponding to a Status, and return this one
+   * @param label string
+   * @returns Status
+   */
   private statusByLabel(label: string): Status {
     const statusAndLabel = Object.entries(labelByStatus).find((statusAndLabel) => statusAndLabel[1] === label);
     return statusAndLabel[0] as Status;
+  }
+
+  private goToFilterCandidate() {
+    this.viewportScroller.scrollToPosition([0, 400]);
+    // Not really great, cuz i should made it with the observable object
+    if (this.viewportScroller.getScrollPosition() !== [0, 400]) {
+      setTimeout(() => {
+        this.viewportScroller.scrollToPosition([0, 400]);
+      }, 250);
+    }
   }
 }
