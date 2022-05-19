@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { emit } from 'process';
 import { ICandidate } from 'src/app/shared/models/candidate';
-import { IStack } from 'src/app/shared/pipes/by-stack.pipe';
+import { IStack } from 'src/app/shared/models/stack';
 
 @Component({
   selector: 'app-status-filter',

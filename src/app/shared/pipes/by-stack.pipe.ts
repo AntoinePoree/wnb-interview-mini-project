@@ -2,14 +2,7 @@ import { colorByStatus, labelByStatus, orderByStatus, Status } from './../models
 import { Pipe, PipeTransform } from '@angular/core';
 import { OrderUtils } from '../utils/order-utils';
 import { ICandidate } from '../models/candidate';
-
-export interface IStack {
-  color: string;
-  label: string;
-  value: number;
-  percentage: number;
-  active?: boolean;
-}
+import { IStack } from '../models/stack';
 
 function generateStack(status: Status, count: number, all: number): IStack {
   return {

@@ -12,7 +12,7 @@ html {
 body {
   background: transparent linear-gradient(90deg, $wanabi-yellow 0%, $wanabi-light-yellow 100%);
   background-repeat: repeat-x;
-  background-size: 100% 50%;
+  background-size: 100% 55%;
   background-attachment: fixed;
 
   margin: 0;
@@ -76,4 +76,8 @@ span {
 
 .muted {
   color: $wanabi-grey;
+}
+
+.light-muted {
+  color: $grey;
 }
